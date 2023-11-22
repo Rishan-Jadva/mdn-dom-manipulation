@@ -10,7 +10,7 @@
       }
 
       li button {
-        font-size: 8px;
+        font-size: 12px;
         margin-left: 20px;
         color: #666;
       }
@@ -31,7 +31,31 @@
     </ul>
 
     <script>
+      const list = document.querySelector('ul');
+      const input = document.querySelector('input');
+      const button = document.querySelector('button');
 
+      button.addEventListener('click', () =>{
+        const text = input.value;
+        input.value = '';
+
+      const listitem = document.createElement('li');
+      const span = document.createElement('span');
+      const newbutton = document.createElement('button');
+
+      listitem.appendChild(span);
+      span.textContent = text;
+      listitem.appendChild(newbutton);
+      newbutton.textContent = 'Delete';
+      list.appendChild(listitem);
+
+      newbutton.addEventListener('click', () =>{
+        list.removeChild(listitem);
+
+        input.focus();
+      })
+      input.focus();
+      })
     </script>
   </body>
 </html>
